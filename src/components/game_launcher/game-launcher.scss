@@ -1,0 +1,107 @@
+
+.game-launcher {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 512px;
+    max-width: 100%;
+    height: 288px;
+    background-color: #020304;
+    z-index: 3;
+    overflow: hidden;
+    h1 {
+        text-align: center;
+        margin-top: 99px;
+        color: white;
+        font-size: 22px;
+        opacity: 0;
+        animation: title-fade 6s steps(1, start) forwards;
+    }
+    h4{
+        text-align: center;
+        margin-top: 10px;
+        color: white;
+        font-size: 13px;
+        opacity: 0;
+        animation: title-fade 6s steps(1, start) forwards;
+    }
+    .launcher-dom {
+        .star {
+            position: absolute;
+            animation: stars 2.6s forwards;
+            opacity: 0;
+        }
+        .one {
+            top: 10px;
+            animation-delay: 0
+        };
+        .two {
+            top: 16px;
+            animation-delay: 0.5s
+        }
+        .three {
+            top: 32px;
+            animation-delay: 0.3s
+        }
+        .logo {
+            position: absolute;
+            left: 50%;
+            bottom: 10px;
+            transform: translateX(-50%);
+            width: 128px;
+            height: 128px;
+            filter: grayscale(1);
+            animation: title-fade 6s steps(1, start) forwards;
+        }
+        
+// .logo {
+//     position: absolute;
+//     left: 50%;
+//     top: 50%;
+//     transform: translate(-50%, -50%);
+//     width: 60%;
+//     object-fit: contain;
+//     filter: grayscale(1);
+//     animation: title-fade 6s steps(1, start) forwards;
+// }
+    }
+}
+
+@keyframes title-fade {
+    0% {opacity: 0.2};
+	8% {opacity: 0.4};
+	16% {opacity: 0.6};
+	24% {opacity: 0.8};
+	32% {opacity: 0.9};
+	36% {opacity: 1};
+	64% {opacity: 1};
+	72% {opacity: 0.8};
+	80% {opacity: 0.6};
+	86% {opacity: 0.4};
+	92% {opacity: 0.2};
+	100% {opacity: 0};
+}
+@keyframes stars {
+    0% {
+        transform: translateX(-50px) rotate(0);
+        opacity: 1;
+    };
+    100% {
+        transform: translateX(550px) rotate(360deg);
+        opacity: 1;
+    }
+}
+@keyframes particles-title {
+    0% {
+        transform: translate(0,0) rotate(0);
+        opacity: 1;
+    };
+    100% {
+        transform: translate(0px, 300px) ;
+        opacity: 1;
+    }
+}
+
+
+

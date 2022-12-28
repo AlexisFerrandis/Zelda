@@ -1,0 +1,59 @@
+.title-screen {
+	position: absolute;
+    display: flex;
+    flex-direction: column;
+	top: 0;
+	right: 0;
+	z-index: 2;
+	width: 100%;
+    height: 100%;
+    user-select: none;
+    &_bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+    }
+    &_logo {
+        margin: 5px auto 0;
+        width: 100%;
+        height: 73%;
+        object-fit: contain;
+        filter: drop-shadow(0 0 0.75rem rgba(26, 6, 137, 0.5));
+    }
+    .keyboard-menu {
+        display: flex;
+        flex-direction: column;
+        bottom: 20px;
+        height: 100px;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        button {
+            width: 100%;
+            margin-bottom: 16px;
+            color: white;
+            background-color: transparent;
+            cursor: pointer;
+            &:focus::before {
+                color: white;
+            }
+        }
+        &::before {
+        border-radius: 3px;
+        padding-top: 10px;
+        height: 100%;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        }
+        .keyboard-menu-option {
+            margin: 3px 0 0 4px;
+        }
+    }
+    .description-box {
+        display: none;
+    }
+}

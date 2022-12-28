@@ -1,0 +1,39 @@
+.hud {
+	position: absolute;
+	left: 26px;
+	top: 8px;
+	image-rendering: pixelated;
+	display: none;
+    .combatant {
+        position: relative;
+        margin-bottom: 13px;
+    }
+    .combatant_type,
+    .support {
+        display: none;
+    }
+    .combatant_icon {
+        position: absolute;
+        bottom: -1px;
+        left: -2px;
+        width: 24px;
+        height: 24px;
+        object-fit: cover;
+        object-position: 0% 100%;
+        overflow: hidden;
+        animation: icons-jumping 0.3s steps(2, start) infinite;
+    }
+    .combatant_status {
+        top: 6px;
+        left: 72px;
+    }
+    .xp-container,
+    .hp-number {
+        display: none;
+    }
+}
+@keyframes icons-jumping {
+	to {
+		transform: translateY(1px);
+	}
+}

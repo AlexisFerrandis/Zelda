@@ -1,0 +1,38 @@
+.text-message {
+	position: absolute;
+	width: 95%;
+	left: 50%;
+	transform: translate(-50%);
+	bottom: 4px;
+	height: 56px;
+    padding: 4px 12px;
+	background: white;
+    outline: 2px solid #4e8098;
+	border: 2px solid #98c5d5;
+	color: #4467e4;
+	border-radius: 10px;
+	z-index: 2;
+    font-size: 12px;
+    .text-message-p {
+        text-shadow: 1px 1px 1px rgb(175, 175, 175);
+        line-height: 22px;
+        user-select: none;
+    }
+    .text-message-p span {
+        opacity: 0;
+    }
+    .text-message-p .revealed {
+        opacity: 1;
+    }
+    .text-message-btn {
+        position: absolute;
+        right: 6px;
+        top: 0;
+        color: #d50808;
+        background: none;
+        font-size: 18px;
+        text-shadow: 1px 1px 1px rgb(119, 119, 119);
+        transform: scaleY(0.8) scaleX(1.1);
+        cursor: pointer;
+    }
+}

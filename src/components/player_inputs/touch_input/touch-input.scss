@@ -1,0 +1,105 @@
+.touch-input {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    .open-controller {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        height: 15%;
+        background-color: transparent;
+        opacity: 0.2;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.4;
+        }
+        &:active {
+            opacity: 0.6;
+        }
+        img {
+            object-fit: cover;
+            padding: 10px;
+            height: 100%;
+        }
+    }
+    .controller {
+        height: 100%;
+        opacity: 0;
+        .princpipal-buttons {
+            display: flex;
+            width: 100%;
+            height: 75%;
+            .joystick {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 32px 128px 0 0;
+                width:50%;
+                transform: scale(1.2);
+                transform-origin: top;
+                .left-right {
+                    display: flex;
+                    justify-content: space-between;
+                    width: 112px;
+                }
+                .arrow {
+                    text-align: center;
+                    width: 60px;
+                    height:30px;
+                    transform: scale(1);
+                    font-size: 32px;
+                    filter: invert(100%);
+                    opacity: 0.5;
+                    background-color: transparent;
+                    &:active {
+                        opacity: 0.9;
+                    }
+                }
+            }
+            .buttons {
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                width: 50%;
+                padding: 64px 0 0 112px;
+                .button {
+                    border: 2px solid rgba(255, 255, 255);
+                    background-color: transparent;
+                    padding: 16px;
+                    color: white;
+                    opacity: 0.5;
+                    &:active {
+                        opacity: 0.9;
+                    }
+                }
+                .button-b {
+                    margin-top: 32px;
+                } 
+            }
+        }
+        .secondary-buttons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: 10%;
+            .start {
+                width: 80px;
+                border: 2px solid white;
+                color: white;
+                background-color: transparent;
+                font-size: 8px;
+                margin-top: 8px;
+                opacity: 0.4;
+                &:active {
+                    opacity: 0.9;
+                }
+            }
+        }
+    }
+    .controller-display {
+        opacity: 1;
+    }
+}

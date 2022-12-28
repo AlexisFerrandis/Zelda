@@ -1,0 +1,39 @@
+.pause-menu {
+	position: absolute;
+    display: flex;
+	right: 5px;
+	top: 5px;
+	z-index: 2;
+	width: 98%;
+    height: 97%;
+    .description-box {
+        width: 95%;
+        left: 50%;
+        transform: translate(-50%);
+        bottom: 4px;
+        height: 50px;
+        padding: 4px 12px;
+        border-radius: 10px;
+        background: white;
+        outline: 2px solid #4e8098;
+        border: 2px solid #98c5d5;
+        color: #4467e4;
+        p {
+            font-size: 12px;
+            text-shadow: 1px 1px 1px rgba(175, 175, 175, 1);
+        }
+    }
+    .keyboard-menu {
+        right: 5px;
+        height: 190px;
+        width: 128px;
+        &::before {
+        border-radius: 3px;
+        padding-top: 10px;
+        height: 100%;
+        }
+        .keyboard-menu-option {
+            margin: 3px 0 0 4px;
+        }
+    }
+}
