@@ -59,6 +59,26 @@ export default class OverworldEvent extends React.Component {
         document.addEventListener("PersonWalkingComplete", completeHandler)
     }
 
+    // swordHit(resolve) {
+    //   console.log("sword");
+    //   const who = this.map.gameObjects[ this.event.who ];
+    //   who.startBehavior({
+    //     map: this.map
+    //   }, {
+    //     type: "sword",
+    //     direction: this.event.direction,
+    //     time: this.event.time
+    //   })
+      
+    //   const completeHandler = e => {
+    //     if (e.detail.whoId === this.event.who) {
+    //       document.removeEventListener("PersonSwordHitComplete", completeHandler);
+    //       resolve();
+    //     }
+    //   }
+    //   document.addEventListener("PersonSwordHitComplete", completeHandler)
+    // }
+
     textMessage(resolve) {
         if (this.event.facePlayer) {
             const obj = this.map.gameObjects[this.event.facePlayer];

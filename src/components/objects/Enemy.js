@@ -1,13 +1,12 @@
 import GameObject from './GameObject';
 import { emitEvent, nextPosition } from '../../Utils';
 
-export default class Person extends GameObject { 
+export default class Enemy extends GameObject { 
     constructor(config) {
         super(config);
 
         this.movingProgressRemaining = 0;
         this.isStanding = false;
-        this.isSwordHit = false;
         this.intentPosition = null; 
 
         this.isPlayerControlled = config.isPlayerControlled || false;
@@ -18,9 +17,12 @@ export default class Person extends GameObject {
             "left": ["x", -1],
             "right": ["x", 1],
         };
+        
+        this.enemyType = config.enemyType || null;
     };
 
     update(state) {
+
         if (this.movingProgressRemaining > 0) {
             this.updatePosition();
         } else {
@@ -75,17 +77,6 @@ export default class Person extends GameObject {
                 this.isStanding = false;
             }, behavior.time)
         }
-
-        // sword hit
-        if (behavior.type === "sword") {
-            this.isSwordHit = true;
-            setTimeout(() => {
-                emitEvent("PersonSwordHitComplete", {
-                    whoId: this.id
-                })
-                this.isSwordHit = false;
-            }, 200)
-        }
     };
 
     updatePosition() {
@@ -103,15 +94,10 @@ export default class Person extends GameObject {
     };
 
     updateSprite() {
-        if (this.isSwordHit) {
-            this.sprite.setAnimation("sword-hit-" + this.direction);
-            return;
-        }
-
         if (this.movingProgressRemaining > 0) {
-            this.sprite.setAnimation("walk-" + this.direction); 
+            this.sprite.setAnimation(this.enemyType + "-walk-" + this.direction);
             return;
         };
-        this.sprite.setAnimation("idle-" + this.direction);
+        this.sprite.setAnimation(this.enemyType + "-idle-" + this.direction);
     };
 };

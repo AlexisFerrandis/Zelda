@@ -1,5 +1,6 @@
 import React from 'react';
 import Person from '../../objects/Person';
+import Enemy from '../../objects/Enemy';
 import OverworldEvent from '../event/OverworldEvent';
 
 import {  nextPosition, withGrid } from '../../../Utils';
@@ -68,6 +69,10 @@ export default class OverworldMap extends React.Component {
             if (obj.type === "Person") {
                 instance = new Person(obj)
             }
+            if (obj.type === "Enemy") {
+                instance = new Enemy(obj)
+            }
+
             this.gameObjects[key] = instance;
             this.gameObjects[key].id = key;
             instance.mount(this);
@@ -140,9 +145,21 @@ export default class OverworldMap extends React.Component {
                     return window.playerState.storyFlags[sf]
                 })
             })
-
             relevantScenario && this.startCutScene(relevantScenario.events);
-        };
+        } else {
+            // sword hit
+            player.startBehavior({
+                map: this.map
+                }, {
+                type: "sword",
+                direction: player.direction,
+                time: 200
+                })
+
+                if (!this.isCutscenePlaying && match && match.props.type === "Enemy") {
+                    console.log("You hit " + match.id);
+                }
+        }
 	};
 
     async checkForFootstepCutscene() {
@@ -166,7 +183,6 @@ export default class OverworldMap extends React.Component {
         };
     };
 };
-
 
 
 window.OverworldMaps = {

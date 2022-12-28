@@ -32,15 +32,27 @@ export default class Sprite extends React.Component {
             "idle-right": [[6,0]],
             
             "walk-down": [[0,4],[2,4],[4,4],[6,4],[8,4],[10,4],[12,4],[14,4],[16,4],[18,4]],
-            "walk-up": [[44,4],[46,4],[48,4],[50,4],[52,4],[54,4],[56,4],[58,4],[60,4],[62,4]],
             "walk-left": [[22,4],[24,4],[26,4],[28,4],[30,4],[32,4],[34,4],[36,4],[38,4],[40,4]],
             "walk-right": [[66,4],[68,4],[70,4],[72,4],[74,4],[76,4],[78,4],[80,4],[82,4],[84,4]],
+            "walk-up": [[44,4],[46,4],[48,4],[50,4],[52,4],[54,4],[56,4],[58,4],[60,4],[62,4]],
+
+            "sword-hit-down": [[0,6],[2,6],[4,6],[6,6],[8,6]],
+            "sword-hit-left": [[12,6],[14,6],[16,6],[18,6],[20,6]],
+            "sword-hit-right": [[22,6],[24,6],[26,6],[28,6],[30,6]],
+            "sword-hit-up": [[32,6],[34,6],[36,6],[38,6],[40,6]],
+
+
+
+            "octorok-idle-down": [[0,0]],
+            "octorok-idle-up": [[0,6]],
+            "octorok-idle-left": [[0,2]],
+            "octorok-idle-right": [[0,4]],
         };
         
         this.currentAnimation = config.currentAnimation || "idle-down";
         this.currentAnimationFrame = 0;
         this.gameObject = config.gameObject;
-        this.animationFrameLimit = config.animationFrameLimit || 8; // frame speed
+        this.animationFrameLimit = config.animationFrameLimit || 4; // frame speed
         this.animationFrameProgress = this.animationFrameLimit;
 
         // ref game object
@@ -81,17 +93,33 @@ export default class Sprite extends React.Component {
         this.isShadowLoaded && ctx.drawImage(this.shadow,0,0,32,64,x+8,y-14,16,64);
 
         const [frameX, frameY] = this.frame;
-        this.isLoaded && ctx.drawImage(
-            this.image,
-            frameX * 16 + 16, 
-            frameY * 16 ,
-            32, 
-            32,
-            x,
-            y,
-            32,
-            32
-        )
-        this.updateAnimationProgress();
+
+        if (this.gameObject.isSwordHit) {
+            this.isLoaded && ctx.drawImage(
+                this.image,
+                frameX * 16 + 16, 
+                frameY * 16 ,
+                32, 
+                32,
+                x-3,
+                y+4,
+                32,
+                32
+            )
+            this.updateAnimationProgress();
+        } else {
+            this.isLoaded && ctx.drawImage(
+                this.image,
+                frameX * 16 + 16, 
+                frameY * 16 ,
+                32, 
+                32,
+                x,
+                y,
+                32,
+                32
+            )
+            this.updateAnimationProgress();
+        }
     };
 };
